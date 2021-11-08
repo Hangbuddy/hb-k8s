@@ -1,16 +1,20 @@
 ﻿# hb-k8s
 
-BE - K8S.
+# Requirements
+1. Docker (Min. v20.10.8)
+2. Kubernetes (Min. v1.21.5)
 
-1- Create secret for MSSQL:
+# Initialization
+
+1. Create secret for MSSQL:
 
     kubectl create secret generic mssql --from-literal=SA_PASSWORD="pa55w0rd!"
 
-2- Create secret for GHCR:
+2. Create secret for GHCR:
 
     kubectl -n default create secret docker-registry hangbuddy --docker-server=ghcr.io --docker-username=<GITHUB_USERNAME> --docker-password=<GITHUB_PAT> --docker-email=<GITHUB_EMAIL>
     
-3- Use following commands to deploy the application on your local environment:
+3. Use following commands to deploy the application on your local environment:
 
     kubectl apply -f mssql-plat-depl.yaml
     kubectl apply -f users-depl.yaml
@@ -23,3 +27,6 @@ Helper commands:
     kubectl get pods
     kubectl get services
     kubectl get deployments
+
+# K8S Architecture 
+ ![image](https://user-images.githubusercontent.com/11320867/140821314-965f8348-b9a2-4076-a302-247359029777.png)
