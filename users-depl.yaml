@@ -15,6 +15,7 @@ spec:
       containers:
         - name: userservice
           image: ghcr.io/hangbuddy/hb-user-service:master
+          imagePullPolicy: Always
       imagePullSecrets:
         - name: hangbuddy
 ---

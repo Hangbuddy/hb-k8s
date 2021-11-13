@@ -15,6 +15,7 @@ spec:
       containers:
         - name: eventservice
           image: ghcr.io/hangbuddy/hb-event-service:master
+          imagePullPolicy: Always
       imagePullSecrets:
         - name: hangbuddy
 ---
