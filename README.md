@@ -22,8 +22,11 @@
         
         kubectl get pods --namespace=ingress-nginx
 
+5. After a while (approximately 1 minutes) ingress service will have an adress. Add this address to hosts file:
+
+        kubectl get ingress
     
-5. Use following commands to deploy the application on your local environment:
+6. Use following commands to deploy the application on your local environment:
 
         kubectl apply -f mssql-plat-depl.yaml
         kubectl apply -f users-depl.yaml
