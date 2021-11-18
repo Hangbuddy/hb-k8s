@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: events-depl
+  name: event-service-app
+  labels:
+    app: event-service-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: eventservice
+      app: event-service-app
   template:
     metadata:
       labels:
-        app: eventservice
+        app: event-service-app
     spec:
       containers:
-        - name: eventservice
+        - name: event-service-app
           image: ghcr.io/hangbuddy/hb-event-service:master
           imagePullPolicy: Always
       imagePullSecrets:
@@ -22,13 +24,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: events-clusterip-srv
+  name: event-service-svc
 spec:
-  type: ClusterIP
   selector:
-    app: eventservice
+    app: event-service-app
   ports:
-    - name: eventservice
-      protocol: TCP
+    - protocol: TCP
       port: 80
       targetPort: 80

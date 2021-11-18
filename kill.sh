@@ -1,4 +1,4 @@
-kubectl delete deployment events-depl
-kubectl delete deployment users-depl
+kubectl delete deployment event-service-app
+kubectl delete deployment user-service-app
 kubectl delete deployment mssql-depl
-docker image prune -a
+kubectl delete svc --all

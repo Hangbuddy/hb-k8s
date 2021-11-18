@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: users-depl
+  name: user-service-app
+  labels:
+    app: user-service-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: userservice
+      app: user-service-app
   template:
     metadata:
       labels:
-        app: userservice
+        app: user-service-app
     spec:
       containers:
-        - name: userservice
+        - name: user-service-app
           image: ghcr.io/hangbuddy/hb-user-service:master
           imagePullPolicy: Always
       imagePullSecrets:
@@ -22,13 +24,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: users-clusterip-srv
+  name: user-service-svc
 spec:
-  type: ClusterIP
   selector:
-    app: userservice
+    app: user-service-app
   ports:
-    - name: userservice
-      protocol: TCP
+    - protocol: TCP
       port: 80
       targetPort: 80

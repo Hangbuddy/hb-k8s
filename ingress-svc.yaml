@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hangbuddy-ingress
+spec:
+  ingressClassName: nginx 
+  rules:
+  - host: hangbuddy.com
+    http:
+      paths:
+      - path: /api/Users
+        pathType: Prefix
+        backend:
+          service:
+            name: user-service-svc
+            port:
+              number: 80
+      - path: /api/Events
+        pathType: Prefix
+        backend:
+          service:
+            name: event-service-svc
+            port:
+              number: 80
