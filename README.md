@@ -43,4 +43,4 @@ Helper commands:
     kubectl get ingress
 
 # K8S Architecture 
- ![image](https://user-images.githubusercontent.com/11320867/140821314-965f8348-b9a2-4076-a302-247359029777.png)
+ <img width="740" alt="image" src="https://user-images.githubusercontent.com/11320867/142763364-f12a396e-9eed-40a9-a022-8fc9c2435dfe.png">
