@@ -18,22 +18,23 @@
 
         helm upgrade --install ingress-nginx ingress-nginx --repo https://kubernetes.github.io/ingress-nginx --namespace ingress-nginx --create-namespace
 
+4. Deploy ingress-nginx controller:
+
+        kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.5/deploy/static/provider/cloud/deploy.yaml
+
 4. Wait for ingres-nginx pod to run:
         
         kubectl get pods --namespace=ingress-nginx
 
-5. After a while (approximately 1 minutes) ingress service will have an adress. Add this address to hosts file:
+5. Deploy the appication on your local environment:
+        
+        kubectl apply -f ./
+        
+
+6. After a while (approximately 1 minutes) ingress service will have an adress. Add this address to hosts file:
 
         kubectl get ingress
     
-6. Use following commands to deploy the application on your local environment:
-
-        kubectl apply -f mssql-plat-depl.yaml
-        kubectl apply -f users-depl.yaml
-        kubectl apply -f events-depl.yaml
-        kubectl apply -f local-pvc.yaml
-        kubectl apply -f users-np-srv.yaml
-
 Helper commands:
 
     kubectl get pods
